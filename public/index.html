@@ -4,40 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Javaanse Kalender</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/src/css/main.css">
 </head>
 <body>
-    <h2>Penanggalan</h2>
-    <div class="container">
-        <div class="navigatie">
-            <button id="vorigeMaand">←</button>
-            <span id="huidigeMaandWeergave"></span>
-            <button id="volgendeMaand">→</button>
-        </div>
-        <div id="javaansJaar" class="javaans-jaar"></div>
-        <div class="kalender-header" id="kalenderHeader">
-            <div>DOT (5)</div>
-            <div>GOT (4)</div>
-            <div>GOS (3)</div>
-            <div>JOS (7)</div>
-            <div>JOH (8)</div>
-            <div>HOD (6)</div>
-            <div>WOR (9)</div>
-        </div>
-        <div class="kalender" id="kalender"></div>
-        <div class="speciale-dagen-footer" id="specialeDagenFooter">
-            <h5>Gogonoh Srengat:</h5>
-            <ul id="specialeDagenLijst"></ul>
-        </div>
-        <div class="goto-date">
-            <input type="date" id="datePicker">
-            <button id="goToDateBtn">Menyang Tanggal</button>
-        </div>
-    </div>
-    <div class="footer">
-        © 2025 Javaanse Kalender
-    </div>
-
-    <script src="script.js"></script>
+    <div id="app"></div>
+    <script type="module" src="/src/js/app.js"></script>
 </body>
 </html>

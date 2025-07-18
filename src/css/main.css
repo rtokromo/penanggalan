@@ -1,0 +1,18 @@
+@import './components/calendar.css';
+@import './components/header.css';
+@import './components/footer.css';
+
+:root {
+    --primary-color: #8b5a2b;
+    --secondary-color: #6b4420;
+    --background-color: #e6f0e6;
+    --text-color: #4a3a2a;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+}

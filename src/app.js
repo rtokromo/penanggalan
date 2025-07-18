@@ -1,33 +1,54 @@
+import { getCalendarData } from './modules/calendarService';
 import { renderCalendar } from './modules/domRenderer';
-import { getCalendarMonth } from './modules/calendarService';
 import { setupEventHandlers } from './modules/eventHandlers';
 
-class JavaneseCalendarApp {
+class JavaneseCalendar {
     constructor() {
         this.state = {
-            javaneseYear: 6449,
-            javaneseMonth: 1
+            javaansJaar: 6449,
+            javaanseMaand: 1
         };
     }
     
     init() {
-        this.render();
+        this.toonHuidigeMaand();
         setupEventHandlers(this);
     }
     
-    render() {
-        const calendarData = getCalendarMonth(
-            this.state.javaneseYear, 
-            this.state.javaneseMonth
-        );
+    toonHuidigeMaand() {
+        const calendarData = getCalendarData(this.state.javaansJaar, this.state.javaanseMaand);
         renderCalendar(calendarData);
     }
     
-    nextMonth() {
-        // Maand navigatie logica
-        this.render();
+    volgendeMaand() {
+        if (this.state.javaanseMaand < 10) {
+            this.state.javaanseMaand++;
+        } else {
+            this.state.javaanseMaand = 1;
+            this.state.javaansJaar++;
+        }
+        this.toonHuidigeMaand();
+    }
+    
+    vorigeMaand() {
+        if (this.state.javaanseMaand > 1) {
+            this.state.javaanseMaand--;
+        } else {
+            this.state.javaanseMaand = 10;
+            this.state.javaansJaar--;
+        }
+        this.toonHuidigeMaand();
+    }
+    
+    gaNaarMaand(javaansJaar, javaanseMaand) {
+        this.state.javaansJaar = javaansJaar;
+        this.state.javaanseMaand = javaanseMaand;
+        this.toonHuidigeMaand();
     }
 }
 
-const app = new JavaneseCalendarApp();
-app.init();
+// Initialiseer de applicatie
+document.addEventListener('DOMContentLoaded', () => {
+    const calendar = new JavaneseCalendar();
+    calendar.init();
+});

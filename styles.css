@@ -1,0 +1,209 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #e6f0e6;
+    color: #4a3a2a;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    background-image: url('https://www.transparenttextures.com/patterns/rice-paper.png');
+}
+
+h1, h2 {
+    font-size: 2.5rem;
+    color: #6b4420;
+    margin-bottom: 20px;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid #8b5a2b;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.kalender {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.kalender-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.kalender-header .dag {
+    background-color: #5a3a1f;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.dag {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #8b5a2b;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.huidige-dag {
+    background-color: #a8e6a8;
+    border-color: #6b8e23;
+}
+
+.speciale-dag {
+    color: red;
+}
+
+.speciale-pasaran {
+    color: red;
+    font-weight: bold;
+}
+
+.normale-pasaran {
+    color: inherit;
+    font-weight: normal;
+}
+
+.speciale-header {
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+}
+
+.speciale-dag-geel {
+    background-color: yellow;
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #8b5a2b;
+}
+
+.navigatie {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+}
+
+.navigatie button {
+    background: #8b5a2b;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    flex-shrink: 0;
+}
+
+.navigatie button:hover {
+    background: #6b4420;
+}
+
+.navigatie span {
+    font-size: 1.2rem;
+    margin: 0 15px;
+    flex-grow: 1;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.speciale-dagen-footer {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #8b5a2b;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.speciale-dagen-footer h5 {
+    font-size: 1rem;
+    margin-top: 0;
+    color: #6b4420;
+}
+
+.speciale-dagen-footer ul {
+    list-style-type: none;
+    padding: 0;
+    font-size: 0.9rem;
+}
+
+.speciale-dagen-footer ul li {
+    margin-bottom: 5px;
+}
+
+.goto-date {
+    margin-top: 20px;
+}
+
+.goto-date input {
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #8b5a2b;
+    border-radius: 5px;
+}
+
+.goto-date button {
+    padding: 8px 16px;
+    font-size: 1rem;
+    background-color: #8b5a2b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.goto-date button:hover {
+    background-color: #6b4420;
+}
+
+.javaans-jaar {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+    h1, h2 {
+        font-size: 2rem;
+    }
+    
+    .navigatie button {
+        font-size: 1.2rem;
+        padding: 6px 12px;
+    }
+    
+    .navigatie span {
+        font-size: 0.9rem;
+        margin: 0 10px;
+    }
+    
+    .kalender {
+        grid-template-columns: repeat(7, 1fr);
+        gap: 5px;
+    }
+    
+    .dag {
+        padding: 5px;
+        font-size: 12px;
+    }
+}

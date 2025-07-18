@@ -7,7 +7,30 @@
     <link rel="stylesheet" href="/src/css/main.css">
 </head>
 <body>
-    <div id="app"></div>
+    <div id="app">
+        <h2>Penanggalan</h2>
+        <div class="container">
+            <div class="navigatie">
+                <button id="vorigeMaand">←</button>
+                <span id="huidigeMaandWeergave"></span>
+                <button id="volgendeMaand">→</button>
+            </div>
+            <div id="javaansJaar" class="javaans-jaar"></div>
+            <div class="kalender-header" id="kalenderHeader"></div>
+            <div class="kalender" id="kalender"></div>
+            <div class="speciale-dagen-footer" id="specialeDagenFooter">
+                <h5>Gogonoh Srengat:</h5>
+                <ul id="specialeDagenLijst"></ul>
+            </div>
+            <div class="goto-date">
+                <input type="date" id="datePicker">
+                <button id="goToDateBtn">Menyang Tanggal</button>
+            </div>
+        </div>
+        <div class="footer">
+            © 2025 Javaanse Kalender
+        </div>
+    </div>
     <script type="module" src="/src/js/app.js"></script>
 </body>
 </html>

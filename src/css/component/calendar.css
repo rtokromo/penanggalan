@@ -1,0 +1,72 @@
+.kalender {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.kalender-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.kalender-header .dag {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.dag {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.huidige-dag {
+    background-color: var(--highlight-bg);
+    border-color: #6b8e23;
+}
+
+.speciale-dag {
+    color: var(--special-day);
+}
+
+.speciale-pasaran {
+    color: var(--special-day);
+    font-weight: bold;
+}
+
+.normale-pasaran {
+    color: inherit;
+    font-weight: normal;
+}
+
+.speciale-header {
+    background-color: var(--special-day);
+    color: white;
+    border-radius: 5px;
+}
+
+.speciale-dag-geel {
+    background-color: yellow;
+}
+
+@media (max-width: 600px) {
+    .kalender {
+        gap: 5px;
+    }
+    
+    .dag {
+        padding: 5px;
+        font-size: 12px;
+    }
+}

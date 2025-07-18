@@ -1,22 +1,54 @@
-import { JAVANESE_MONTHS } from '../config/constants';
-import { convertToJavaneseDate, convertToGregorianDate } from './dateConverter';
+import { 
+    JAVANESE_MONTHS,
+    SPECIALE_JAVAANSE_DAGEN,
+    PASARAN_DATA
+} from '../config/constants';
+import { berekenGregoriaanseDatum, bepaalPasaran } from './dateConverter';
 
-export function getCalendarMonth(javaneseYear, javaneseMonth) {
-    const daysInMonth = JAVANESE_MONTHS[javaneseMonth - 1][1];
-    const startDate = convertToGregorianDate(javaneseYear, javaneseMonth, 1);
+export function getCalendarData(javaansJaar, javaanseMaand) {
+    const dagenInMaand = JAVANESE_MONTHS[javaanseMaand - 1][1];
+    const startDatum = berekenGregoriaanseDatum(javaansJaar, javaanseMaand, 1);
+    
+    const specialeDagen = [];
+    const dagen = [];
+    
+    for (let dag = 1; dag <= dagenInMaand; dag++) {
+        const gregoriaanseDatum = berekenGregoriaanseDatum(javaansJaar, javaanseMaand, dag);
+        const pasaran = bepaalPasaran(gregoriaanseDatum);
+        const pasaranInfo = PASARAN_DATA.find(p => p.naam === pasaran);
+        
+        const dagData = {
+            javaanseDag: dag,
+            gregoriaanseDatum,
+            pasaran: pasaranInfo,
+            dagVanDeWeek: bepaalDagVanDeWeek(gregoriaanseDatum),
+            isHuidigeDag: isCurrentDate(gregoriaanseDatum),
+            isSpecialeJavaanseDag: SPECIALE_JAVAANSE_DAGEN[javaanseMaand]?.includes(dag) || false
+        };
+        
+        dagen.push(dagData);
+    }
     
     return {
-        monthName: JAVANESE_MONTHS[javaneseMonth - 1][0],
-        days: Array.from({ length: daysInMonth }, (_, i) => {
-            const day = i + 1;
-            const date = convertToGregorianDate(javaneseYear, javaneseMonth, day);
-            return {
-                day,
-                date,
-                isCurrent: isCurrentDate(date),
-                isSpecial: isSpecialDay(javaneseMonth, day)
-            };
-        }),
-        firstDayOfWeek: startDate.getDay()
+        javaansJaar,
+        javaanseMaand,
+        maandNaam: JAVANESE_MONTHS[javaanseMaand - 1][0],
+        dagen,
+        eersteDagVanDeWeek: startDatum.getDay(),
+        specialeDagen
     };
+}
+
+function bepaalDagVanDeWeek(datum) {
+    const dagen = ["Zo", "Ma", "Di", "Wo", "Do", "Vr", "Za"];
+    return dagen[datum.getDay()];
+}
+
+function isCurrentDate(datum) {
+    const vandaag = new Date();
+    return (
+        datum.getDate() === vandaag.getDate() &&
+        datum.getMonth() === vandaag.getMonth() &&
+        datum.getFullYear() === vandaag.getFullYear()
+    );
 }
